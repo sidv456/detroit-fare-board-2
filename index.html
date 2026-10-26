@@ -118,18 +118,7 @@ h1 .to{color:var(--amber)}
 .board .low .t{color:var(--amber)}
 .board .low .s{color:var(--amber);font-weight:600}
 
-.routes{margin-top:34px}
-.routes svg{display:block;width:100%;height:84px}
-.routes path{fill:none;stroke:var(--amber);stroke-width:2;vector-effect:non-scaling-stroke;stroke-linecap:round;stroke-dasharray:1;stroke-dashoffset:0}
-.routes path.a{opacity:.9}
-.routes path.b{opacity:.65}
-.routes path.c{opacity:.45}
-.routes circle{fill:var(--text)}
-.routes .end{fill:var(--amber)}
-.routes-labels{display:flex;justify-content:space-between;font-family:var(--display);font-weight:800;font-size:1.2rem;letter-spacing:.04em;margin-top:6px}
-.routes-labels small{font-family:var(--body);font-weight:400;font-size:.9rem;color:var(--muted);letter-spacing:0;margin-left:6px}
-.js .routes path{animation:draw 1.4s .2s ease-out both}
-@keyframes draw{from{stroke-dasharray:1 1;stroke-dashoffset:1;pathLength:1}to{stroke-dashoffset:0}}
+
 
 .glance{border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin-top:30px;background:#0F1729}
 .glance .wrap{display:grid;gap:0}
@@ -239,8 +228,14 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:space-betw
 }
 @media (min-width:900px){
   .hero{padding:56px 0 36px}
-  .hero-grid{grid-template-columns:1.05fr 1fr;gap:56px}
-  .board a{grid-template-columns:44px 1fr auto;column-gap:16px;padding:15px 22px}
+  .hero-grid{grid-template-columns:1.05fr 1fr;gap:56px;align-items:stretch}
+  .board{display:flex;flex-direction:column}
+  .board li:not(.board-title){flex:1;display:flex}
+  .board a{flex:1;align-content:center;grid-template-columns:44px 1fr auto;column-gap:16px;padding:15px 22px}
+  .board .r{font-size:2.1rem}
+  .board .t{font-size:2.3rem}
+  .board .n{font-size:2.4rem}
+  .board .d,.board .s{font-size:1rem}
   .pass{grid-template-columns:1fr 280px}
   .pass-main{padding:30px 32px 28px}
   .pass-stub{
@@ -256,7 +251,11 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:space-betw
   .facts{grid-template-columns:1fr}
   .board .t{font-size:1.5rem}
   .board .r{font-size:1.4rem}
-  .top nav{gap:14px}
+  .top nav{gap:12px;font-size:.9rem;flex:none}
+  .top nav a{white-space:nowrap}
+  .brand{font-size:.9rem;gap:8px;min-width:0}
+  .brand svg{flex:none;width:20px;height:20px}
+  .top .wrap{gap:10px}
 }
 @media (prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
@@ -314,14 +313,6 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:space-betw
         </ol>
       </div>
 
-      <div class="routes" aria-hidden="true">
-        <svg viewBox="0 0 600 84" preserveAspectRatio="none">
-          <path class="a" d="M10 14 Q300 -30 590 42"/>
-          <path class="b" d="M10 42 Q300 20 590 42"/>
-          <path class="c" d="M10 70 Q300 100 590 42"/>
-        </svg>
-        <div class="routes-labels"><span>OAK, SFO, SJC<small>Bay Area</small></span><span>DTW<small>Detroit</small></span></div>
-      </div>
     </div>
   </section>
 
